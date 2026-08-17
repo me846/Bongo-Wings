@@ -247,10 +247,10 @@ public sealed class IniConfigService
             }
             if (File.Exists(Path.Combine(directory.FullName, "obs_input_server.py")))
             {
-                return Path.Combine(directory.FullName, "keybindings.ini");
+                return Path.Combine(directory.FullName, "config.ini");
             }
             directory = directory.Parent;
         }
-        return Path.Combine(AppContext.BaseDirectory, "keybindings.ini");
+        return Path.Combine(AppContext.BaseDirectory, "config.ini");
     }
 }

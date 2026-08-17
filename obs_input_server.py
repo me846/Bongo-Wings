@@ -27,7 +27,7 @@ except ImportError:
 FROZEN = bool(getattr(sys, "frozen", False))
 ROOT = Path(sys.executable).resolve().parent if FROZEN else Path(__file__).resolve().parent
 WEB_ROOT = ROOT / "web" if FROZEN else ROOT
-CONFIG_PATH = ROOT / "config.ini" if FROZEN else ROOT / "keybindings.ini"
+CONFIG_PATH = ROOT / "config.ini"
 DEFAULT_CHARACTER = "angelis"
 CHARACTER_PAK_ROOT = (
     WEB_ROOT / "characters" if FROZEN else ROOT / "assets" / "characters"
