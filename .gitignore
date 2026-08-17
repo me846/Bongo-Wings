@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+KeyConfigApp/bin/
+KeyConfigApp/obj/
+build/
+dist/
+release/
+*.spec
+
+assets/characters/*.pak
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp

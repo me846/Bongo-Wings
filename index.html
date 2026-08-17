@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e5d6d2">
+  <title>疑似3Dレバー・プロトタイプ</title>
+  <link rel="stylesheet" href="styles.css?v=scale2-26">
+</head>
+<body>
+  <main class="scene" aria-label="疑似3Dアーケードレバー入力表示">
+    <div id="artwork" class="artwork" data-state="bg1">
+      <img
+        id="backgroundImage"
+        class="base-art"
+        src="media/angelis/bg1?v=characters-1"
+        width="1514"
+        height="1514"
+        alt=""
+        draggable="false"
+      >
+
+      <canvas
+        id="leverCanvas"
+        class="lever-canvas"
+        width="1514"
+        height="1514"
+        aria-hidden="true"
+      ></canvas>
+
+      <img
+        id="actionHand"
+        class="action-hand"
+        src="media/angelis/hands?v=characters-1"
+        width="120"
+        height="120"
+        alt=""
+        draggable="false"
+        aria-hidden="true"
+      >
+    </div>
+
+    <aside id="debugPanel" class="debug-panel" hidden>
+      <p id="connectionStatus">ゲームパッド待機中</p>
+      <p id="inputRelayStatus" class="input-relay-status" data-state="checking">OBS入力: 確認中</p>
+      <p>入力: キーボード / ゲームパッド</p>
+      <p>入力設定: keybindings.ini</p>
+      <p id="inputState">入力: neutral / bg1</p>
+    </aside>
+
+    <p id="liveStatus" class="visually-hidden" aria-live="polite"></p>
+  </main>
+
+  <script src="app.js?v=scale2-29"></script>
+</body>
+</html>

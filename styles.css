@@ -1,0 +1,158 @@
+:root {
+  color-scheme: light;
+  --backdrop: #e5d6d2;
+  --ink: #302a2e;
+  --mauve: #ad7187;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+body {
+  min-width: 240px;
+  min-height: 240px;
+}
+
+.scene {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  isolation: isolate;
+}
+
+.artwork {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.artwork[data-fit="contain"] {
+  width: min(100vw, 100vh);
+  height: auto;
+  aspect-ratio: 1;
+}
+
+.base-art,
+.lever-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.base-art {
+  object-fit: fill;
+  opacity: 0;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.base-art.is-ready {
+  opacity: 1;
+}
+
+.lever-canvas {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.action-hand {
+  position: absolute;
+  z-index: 2;
+  left: var(--hand-left, 0%);
+  top: var(--hand-top, 0%);
+  display: block;
+  width: 7.926024%;
+  height: 7.926024%;
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.action-hand.is-pressing {
+  opacity: 1;
+}
+
+.input-relay-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 0 0;
+  color: color-mix(in srgb, var(--ink) 62%, var(--backdrop));
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.input-relay-status::before {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--ink) 28%, var(--backdrop));
+  content: "";
+}
+
+.input-relay-status[data-state="connected"]::before {
+  background: #64876b;
+}
+
+.input-relay-status[data-state="unavailable"]::before {
+  background: color-mix(in srgb, var(--mauve) 68%, var(--ink));
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.debug-panel {
+  position: fixed;
+  z-index: 3;
+  right: clamp(10px, 2vw, 24px);
+  bottom: clamp(10px, 2vw, 24px);
+  padding: 10px 13px;
+  border: 1px solid color-mix(in srgb, var(--mauve) 34%, transparent);
+  border-radius: 8px;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--backdrop) 91%, transparent);
+  font: 500 12px/1.45 "Yu Gothic UI", "Hiragino Sans", sans-serif;
+  box-shadow: 0 5px 18px color-mix(in srgb, var(--ink) 10%, transparent);
+}
+
+.debug-panel p {
+  margin: 0;
+}
+
+.debug-panel p + p {
+  margin-top: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .action-hand {
+    transition: none;
+  }
+}
