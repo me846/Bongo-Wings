@@ -1,15 +1,10 @@
-# SWbongo
+# BongoWings
 
-SWbongoは、キーボードやXInput対応アーケードコントローラーの入力に合わせてキャラクターが動く、OBSブラウザソース向けのオーバーレイです。
+BongoWingsは、キーボードやXInput対応アーケードコントローラーの入力に合わせてキャラクターが動く、OBSブラウザソース向けのオーバーレイです。
 
-## 必要なもの
+## ダウンロード
 
-- Windows 10またはWindows 11
-- OBS Studio
-- Python 3
-- .NET 10 SDK
-- 正規に配布されたキャラクター用 `.pak`
-- コントローラーを使用する場合はXInput対応機器
+最新の配布ファイルは、[GitHub Releases](https://github.com/me846/Bongo-Wings/releases/tag/v1.0.0)からダウンロードできます。
 
 ## 1. キャラクターを配置する
 
